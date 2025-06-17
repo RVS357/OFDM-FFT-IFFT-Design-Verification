@@ -1,0 +1,235 @@
+DUT 0 TEST: 
+** Report counts by severity
+UVM_INFO :138343
+UVM_WARNING :    0
+UVM_ERROR :11678
+UVM_FATAL :    0
+** Report counts by id
+[MISMATCH] 11678
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 38322
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
+
+DUT 1 TEST:
+** Report counts by severity
+UVM_INFO :149996
+UVM_WARNING :    0
+UVM_ERROR :   25
+UVM_FATAL :    0
+** Report counts by id
+[MISMATCH]    25
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 49975
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
+
+DUT 2 TEST: 
+** Report counts by severity
+UVM_INFO :150021
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 50000
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
+
+DUT 3 TEST:
+
+** Report counts by severity
+UVM_INFO :150021
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 50000
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
+
+DUT 4 TEST:
+** Report counts by severity
+UVM_INFO :150021
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 50000
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
+
+DUT 5 TEST: 
+** Report counts by severity
+UVM_INFO :150021
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 50000
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
+
+DUT 6 TEST: 
+** Report counts by severity
+UVM_INFO :150018
+UVM_WARNING :    0
+UVM_ERROR :    3
+UVM_FATAL :    0
+** Report counts by id
+[MISMATCH]     3
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 49997
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
+
+DUT 7 TEST:
+** Report counts by severity
+UVM_INFO :150021
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 50000
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
+
+DUT 8 TEST:
+** Report counts by severity
+UVM_INFO :149823
+UVM_WARNING :    0
+UVM_ERROR :  198
+UVM_FATAL :    0
+** Report counts by id
+[MISMATCH]   198
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 49802
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
+
+DUT 9 TEST:
+** Report counts by severity
+UVM_INFO :150004
+UVM_WARNING :    0
+UVM_ERROR :   17
+UVM_FATAL :    0
+** Report counts by id
+[MISMATCH]    17
+[MONITOR_OUT]     1
+[RNTST]     1
+[SUCCESS] 49983
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+[agent]     3
+[driver] 100001
+[env]     2
+[env_msg]     1
+[monitor]     1
+[sbd]     2
+[seq]     2
+[seqr]     1
+[test]     3
