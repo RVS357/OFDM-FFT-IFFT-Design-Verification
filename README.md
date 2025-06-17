@@ -1,81 +1,83 @@
-🔧 128-point FFT & Slicing Block for OFDM Receiver – FPGA Implementation
-This project implements a 128-point complex FFT and slicing block for a simplified OFDM (Orthogonal Frequency Division Multiplexing) communication system, optimized for FPGA. It performs spectral bin analysis and bit slicing from modulated waveforms, enabling demodulation of frequency-domain symbols into digital bitstreams.
+# 128-Point FFT & Slicing Block for OFDM Receiver
 
-✅ System Overview
-The system processes complex-valued I/Q input samples from an OFDM decoder, applies a 128-point FFT, and slices the resulting frequency-domain amplitudes to decode digital data encoded over 24 OFDM tones.
+This project implements a **128-point complex FFT and slicing block** for a simplified OFDM (Orthogonal Frequency Division Multiplexing) receiver, designed for FPGA. The module converts complex I/Q input samples into frequency-domain bins, slices them according to predefined energy thresholds, and extracts digital symbols.
 
-📐 Key Features
-128-point Complex FFT using fixed-point (1.15) signed inputs.
+---
 
-Input Ports:
+## 📌 System Overview
 
-DinR, DinI: Real/Imaginary 16-bit values in 1.15 format.
+The design accepts 128 complex samples in 1.15 fixed-point format and performs an FFT to extract energy in 24 even-numbered bins (4 to 52). Two reference tones (bins 55 and 57) are used to approximate full-scale energy. The system slices each tone’s magnitude into 2-bit quantized symbols.
 
-PushIn, FirstData: Handshaking signals to delineate FFT frames.
+---
 
-Output Ports:
+## 🔧 Specifications
 
-DataOut (48 bits): Output digital bits (2 bits per tone, 24 tones).
+* **FFT size:** 128-point (complex)
+* **Input format:** 16-bit signed fixed-point (1.15) for both real and imaginary parts
+* **Active bins:** Even-numbered bins 4 to 52 (24 tones total)
+* **Tone encoding:** 2 bits per tone (4 levels: 00, 01, 10, 11)
+* **Reference bins:** Bin 55 or 57 (used to determine 100% energy reference)
+* **Output size:** 48 bits per FFT frame (24 tones × 2 bits)
+* **Clocking:** Positive-edge system clock
+* **Reset:** Active-high asynchronous reset
 
-PushOut: Indicates output validity.
+---
 
-📊 Modulation Scheme
-2-bit quantization per tone → 4 energy levels:
-00 = 0%, 01 = 33%, 10 = 66%, 11 = 100%
+## 📤 Output Encoding
 
-Tone mapping:
+Each bin's magnitude is compared against full scale derived from bin 55 or 57:
 
-Active tones: FFT bins 4 to 52 (even only, 24 total)
+| Encoded Value | Energy Level | Magnitude Range (% of Full Scale) |
+| ------------- | ------------ | --------------------------------- |
+| 00            | 0%           | < 25%                             |
+| 01            | 33%          | ≥25% and <50%                     |
+| 10            | 66%          | ≥50% and <75%                     |
+| 11            | 100%         | ≥75%                              |
 
-Reference tones: Bins 55 or 57 are used to determine full-scale reference amplitude
+---
 
-⚙️ Slicing Algorithm
-FFT outputs are converted to magnitude:
-Mag = sqrt(Re² + Im²)
+## 🔄 Port Description
 
-Each bin’s magnitude is compared to full-scale (from bin 55 or 57):
+| Name        | Dir | Width | Description                           |
+| ----------- | --- | ----- | ------------------------------------- |
+| `Clk`       | In  | 1     | Positive-edge system clock            |
+| `Reset`     | In  | 1     | Active-high asynchronous reset        |
+| `PushIn`    | In  | 1     | Indicates valid input data            |
+| `FirstData` | In  | 1     | Marks the start of an FFT frame       |
+| `DinR`      | In  | 16    | Real part of input (1.15 format)      |
+| `DinI`      | In  | 16    | Imaginary part of input (1.15 format) |
+| `PushOut`   | Out | 1     | Output valid indicator                |
+| `DataOut`   | Out | 48    | 2-bit sliced outputs per FFT bin      |
 
-< 25% → 00
+---
 
-25% – 49% → 01
+## 🧪 Verification
 
-50% – 74% → 10
+* Inputs generated from an IFFT of 2-bit encoded bins
+* Simulated and validated against expected frequency-domain outputs
+* Functional verification performed using testbenches with varying energy levels
 
-75%+ → 11
+---
 
-📤 Output Format
-One FFT block produces 48 bits (24 tones × 2 bits)
+## 📁 Repository Structure
 
-DataOut is delivered in sync with PushOut, starting with bin 4 → bin 52
+* `rtl/` – Verilog RTL modules for FFT interface, slicing logic, and controller
+* `tb/` – Testbenches and stimulus generation for functional simulation
+* `docs/` – Project documentation, diagrams, and this README
 
-🛠️ Design Constraints
-Designed to operate under synchronous system clock (Clk)
+---
 
-Supports asynchronous reset
+## 💡 Applications
 
-Timing and pipelining optimized for FPGA synthesis
+* OFDM demodulators (e.g., WiFi, LTE baseband chains)
+* SDR front-end processing
+* Communication system education
+* FPGA-based spectrum analysis
 
-Fully synthesizable RTL (tested on Vivado with 1 ns cycle time)
+---
 
-📁 Files & Structure
-RTL modules: FFT wrapper, slicer, controller
+## ✅ Status
 
-Testbench with sample I/Q inputs simulating OFDM waveform
-
-Post-synthesis verification with fixed-point test vectors
-
-🧪 Verification
-Tested with synthetic IFFT waveforms generated from 2-bit encoded tones
-
-Verified energy slicing against known bit patterns
-
-Correct 48-bit outputs confirmed over multiple test cases
-
-🛜 Applications
-OFDM demodulators
-
-Software-defined radio (SDR) front ends
-
-Spectrum analyzers
-
-Digital communications training modules
+* ✅ Design synthesized in Vivado
+* ✅ Verified functionally in simulation
+* ✅ Generates correct 48-bit sliced outputs based on FFT analysis
