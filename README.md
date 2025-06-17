@@ -51,11 +51,11 @@ Each bin's magnitude is compared against full scale derived from bin 55 or 57:
 
 ---
 
-## 🧪 Verification
+## 🧪 Verification (UVM - SV)
 
 * Inputs generated from an IFFT of 2-bit encoded bins
 * Simulated and validated against expected frequency-domain outputs
-* Functional verification performed using testbenches with varying energy levels
+* Functional verification performed using testbenches with varying energy levels in using systemverilog and UVM.
 * **Randomized testing**: 50,000 randomized input vectors were used to validate robustness, correctness, and output bit integrity
 
 ---
@@ -71,7 +71,7 @@ Each bin's magnitude is compared against full scale derived from bin 55 or 57:
 
 ## ✅ Status
 
-* ✅ Design synthesized in Vivado
+* ✅ Design synthesized in Synopsys VCS
 * ✅ Verified functionally in simulation
 * ✅ Generates correct 48-bit sliced outputs based on FFT analysis
 * ✅ Validated across 50,000 random input samples
