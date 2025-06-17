@@ -56,14 +56,7 @@ Each bin's magnitude is compared against full scale derived from bin 55 or 57:
 * Inputs generated from an IFFT of 2-bit encoded bins
 * Simulated and validated against expected frequency-domain outputs
 * Functional verification performed using testbenches with varying energy levels
-
----
-
-## 📁 Repository Structure
-
-* `rtl/` – Verilog RTL modules for FFT interface, slicing logic, and controller
-* `tb/` – Testbenches and stimulus generation for functional simulation
-* `docs/` – Project documentation, diagrams, and this README
+* **Randomized testing**: 50,000 randomized input vectors were used to validate robustness, correctness, and output bit integrity
 
 ---
 
@@ -81,3 +74,4 @@ Each bin's magnitude is compared against full scale derived from bin 55 or 57:
 * ✅ Design synthesized in Vivado
 * ✅ Verified functionally in simulation
 * ✅ Generates correct 48-bit sliced outputs based on FFT analysis
+* ✅ Validated across 50,000 random input samples
